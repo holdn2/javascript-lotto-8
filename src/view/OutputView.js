@@ -8,6 +8,9 @@ const outputView = {
       `${MARK.NEW_LINE}${purchaseQuantity}${OUTPUT_MESSAGE.PURCHASE_QUANTITY}`,
     );
   },
+  printDrawLottos(drawnLottos) {
+    drawnLottos.forEach((lotto) => Console.print(lotto));
+  },
 };
 
 export default outputView;
