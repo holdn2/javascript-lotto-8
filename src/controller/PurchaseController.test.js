@@ -1,8 +1,8 @@
-import PurchaseController from '../src/controller/PurchaseController.js';
-import inputView from '../src/view/InputView.js';
-import { ERROR_MESSAGE } from '../src/constant/error.js';
+import PurchaseController from './PurchaseController.js';
+import inputView from '../view/InputView.js';
+import { ERROR_MESSAGE } from '../constant/error.js';
 
-jest.mock('../src/view/InputView.js');
+jest.mock('../../src/view/InputView.js');
 
 describe('로또 구매 금액에 관련된 PurchaseController 테스트', () => {
   let purchaseContoller;
