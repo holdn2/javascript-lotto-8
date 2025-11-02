@@ -36,3 +36,30 @@ export function validateInputBonusNumber(inputBonusNumber) {
   // 보너스 번호 입력이 숫자가 아닐 때 에러 발생
   if (isNaN(inputBonusNumber)) throw new Error(ERROR_MESSAGE.NOT_A_NUMBER);
 }
+
+export function validateLottoNumbersLength(numbers) {
+  // 로또 번호가 6개가 아니면 에러 발생
+  if (numbers.length !== NUMBER.LOTTO_LENGTH) {
+    throw new Error(ERROR_MESSAGE.INVALID_LOTTO_NUMBER_LENGTH);
+  }
+}
+
+export function validateLottoNumberDuplication(numbers) {
+  // 로또 번호에 중복 숫자가 있으면 에러 발생
+  const hasDuplication = new Set(numbers).size !== numbers.length;
+  if (hasDuplication) throw new Error(ERROR_MESSAGE.DUPLICATE_LOTTO_NUMBER);
+}
+
+export function validateNumberRange(number) {
+  // 로또 번호와 보너스번호가 범위(1~45)에서 벗어날 때 에러 발생
+  if (number < NUMBER.MIN || number > NUMBER.MAX) {
+    throw new Error(ERROR_MESSAGE.INVALID_LOTTO_NUMBER_RANGE);
+  }
+}
+
+export function validateBonusDuplicatedWithLotto(bonusNumber, lotto) {
+  // 로또 번호 중 보너스 번호와 중복되는 것이 있다면 에러 발생
+  if (lotto.contains(bonusNumber)) {
+    throw new Error(ERROR_MESSAGE.BONUS_DUPLICATED_WITH_LOTTO);
+  }
+}
