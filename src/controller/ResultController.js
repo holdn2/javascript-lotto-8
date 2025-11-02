@@ -1,4 +1,6 @@
 import { MATCH_COUNT, NUMBER, WINNIING_AMOUNT } from '../constant/number.js';
+import { checkLottoMatch } from '../service/lotto/LottoCheckService.js';
+import { calculateRateOfReturn } from '../service/lotto/RateOfReturnService.js';
 import outputView from '../view/OutputView.js';
 
 export default class ResultController {
@@ -23,28 +25,11 @@ export default class ResultController {
     outputView.printTotalRateOfReturn(this.#calculateTotalRateOfReturn());
   }
 
-  #checkLottos(drawnLottos, { lotto, bonus }) {
-    drawnLottos.forEach((drawnLotto) => {
-      let matchesCount = lotto.countMatches(drawnLotto);
-      if (matchesCount === MATCH_COUNT.SIX) this.#statistics.sixMatches++;
-      if (matchesCount === MATCH_COUNT.FIVE && bonus.checkBonus(drawnLotto))
-        this.#statistics.fiveMatchesWithBonus++;
-      if (matchesCount === MATCH_COUNT.FIVE && !bonus.checkBonus(drawnLotto))
-        this.#statistics.fiveMatches++;
-      if (matchesCount === MATCH_COUNT.FOUR) this.#statistics.fourMatches++;
-      if (matchesCount === MATCH_COUNT.TRHEE) this.#statistics.threeMatches++;
-    });
+  #checkLottos(drawnLottos, winningLotto) {
+    checkLottoMatch(this.#statistics, drawnLottos, winningLotto);
   }
 
   #calculateTotalRateOfReturn() {
-    const purchaseAmount = this.#purchaseQuantity * NUMBER.UNIT;
-    const totalWinningAmount =
-      this.#statistics.sixMatches * WINNIING_AMOUNT.FIRST_PLACE +
-      this.#statistics.fiveMatchesWithBonus * WINNIING_AMOUNT.SECOND_PLACE +
-      this.#statistics.fiveMatches * WINNIING_AMOUNT.THIRD_PLACE +
-      this.#statistics.fourMatches * WINNIING_AMOUNT.FOURTH_PLACE +
-      this.#statistics.threeMatches * WINNIING_AMOUNT.FIFTH_PLACE;
-
-    return ((totalWinningAmount / purchaseAmount) * 100).toFixed(1);
+    return calculateRateOfReturn(this.#purchaseQuantity, this.#statistics);
   }
 }
