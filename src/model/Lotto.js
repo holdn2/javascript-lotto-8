@@ -18,11 +18,18 @@ class Lotto {
     validateLottoNumberDuplication(this.#numbers);
   }
 
-  contains(number) {
+  containBonus(number) {
     return this.#numbers.includes(number);
   }
 
-  // TODO: 숫자 배열을 받아서 일치하는 개수를 반환하는 함수
+  countMatches(drawnLotto) {
+    let count = 0;
+    drawnLotto.forEach((drawnNumber) => {
+      if (this.#numbers.includes(drawnNumber)) count++;
+    });
+
+    return count;
+  }
 }
 
 export default Lotto;
