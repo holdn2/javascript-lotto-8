@@ -10,7 +10,8 @@ export const OUTPUT_MESSAGE = Object.freeze({
   THREE_MATCHES: '3개 일치 (5,000원) - ',
   FOUR_MATCHES: '4개 일치 (50,000원) - ',
   FIVE_MATCHES: '5개 일치 (1,500,000원) - ',
-  FIVE_MATCHES_WITH_BONUS: '3개 일치 (5,000원) - ',
+  FIVE_MATCHES_WITH_BONUS: '5개 일치, 보너스 볼 일치 (30,000,000원) - ',
   SIX_MATCHES: '6개 일치 (2,000,000,000원) - ',
+  COUNTER: '개',
   TOTAL_RATE_OF_RETURN: (rateOfReturn) => `총 수익률은 ${rateOfReturn}%입니다.`,
 });
