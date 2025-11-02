@@ -12,7 +12,9 @@ class Bonus {
     validateBonusDuplicatedWithLotto(bonusNumber, lotto);
   }
 
-  // TODO: 숫자 배열을 받아 보너스 번호를 포함하는지 여부 반환하는 함수 반환
+  checkBonus(drawnLotto) {
+    return drawnLotto.includes(this.#bonusNumber);
+  }
 }
 
 export default Bonus;
