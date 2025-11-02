@@ -59,7 +59,7 @@ export function validateNumberRange(number) {
 
 export function validateBonusDuplicatedWithLotto(bonusNumber, lotto) {
   // 로또 번호 중 보너스 번호와 중복되는 것이 있다면 에러 발생
-  if (lotto.contains(bonusNumber)) {
+  if (lotto.containBonus(bonusNumber)) {
     throw new Error(ERROR_MESSAGE.BONUS_DUPLICATED_WITH_LOTTO);
   }
 }
