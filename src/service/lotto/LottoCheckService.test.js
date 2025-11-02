@@ -23,8 +23,10 @@ describe('checkLottoMatch', () => {
     const bonus = new Bonus(7, lotto);
     const winningLotto = { lotto, bonus };
 
+    // when
     checkLottoMatch(statistics, drawnLottos, winningLotto);
 
+    // then
     expect(statistics).toEqual({
       sixMatches: 1,
       fiveMatchesWithBonus: 1,
