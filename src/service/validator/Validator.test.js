@@ -1,5 +1,5 @@
 import { ERROR_MESSAGE } from '../../constant/error.js';
-import { validatePurchaseAmount } from './validators.js';
+import { validatePurchaseAmount } from './PurchaseValidator.js';
 
 describe('로또 구매 금액 입력에 대한 검증 테스트', () => {
   test.each([

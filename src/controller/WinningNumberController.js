@@ -1,12 +1,11 @@
 import inputView from '../view/InputView.js';
 import { INPUT_MESSAGE } from '../constant/inform.js';
 import { parseNumbers, sortAscending } from '../utils/utils.js';
-import {
-  validateInputBonusNumber,
-  validateInputWinningNumbers,
-} from '../service/validator/validators.js';
+
 import Lotto from '../model/Lotto.js';
 import Bonus from '../model/Bonus.js';
+import { validateInputWinningNumbers } from '../service/validator/lottoValidator.js';
+import { validateInputBonusNumber } from '../service/validator/bonusValidator.js';
 
 export default class WinningNumberController {
   async run() {

@@ -1,7 +1,5 @@
-import {
-  validateBonusDuplicatedWithLotto,
-  validateNumberRange,
-} from '../service/validator/validators.js';
+import { validateNumberRange } from '../service/validator/rangeValidator.js';
+import { validateBonusDuplicatedWithLotto } from '../service/validator/bonusValidator.js';
 
 class Bonus {
   #bonusNumber;

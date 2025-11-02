@@ -1,21 +1,17 @@
+import { validateNumberRange } from '../service/validator/rangeValidator.js';
 import {
   validateLottoNumberDuplication,
   validateLottoNumbersLength,
-  validateNumberRange,
-} from '../service/validator/validators.js';
+} from '../service/validator/lottoValidator.js';
 
 class Lotto {
   #numbers;
 
   constructor(numbers) {
     this.#numbers = numbers;
-    this.#validate();
-  }
-
-  #validate() {
-    validateLottoNumbersLength(this.#numbers);
-    this.#numbers.forEach((number) => validateNumberRange(number));
-    validateLottoNumberDuplication(this.#numbers);
+    validateLottoNumbersLength(numbers);
+    numbers.forEach((number) => validateNumberRange(number));
+    validateLottoNumberDuplication(numbers);
   }
 
   containBonus(number) {
