@@ -19,13 +19,15 @@ export default class WinningNumberController {
       parseNumbers(inputWinningNumbers),
     );
 
-    const winningNumbers = new Lotto(inputWinningNumbersArray);
+    const winningLotto = new Lotto(inputWinningNumbersArray);
 
     const inputBonusNumber = Number(
       await inputView.readLineInput(INPUT_MESSAGE.BONUS_NUMBER),
     );
     validateInputBonusNumber(inputBonusNumber);
 
-    const bonusNumber = new Bonus(Number(inputBonusNumber));
+    const bonus = new Bonus(Number(inputBonusNumber), winningLotto);
+
+    return { winningLotto, bonus };
   }
 }
