@@ -122,50 +122,104 @@
 
 ## 👉 프로그램 흐름
 
-1. **로또 구입 금액**
+### 1. **로또 구입 금액 입력 (`PurchaseController`)**
 
-- 로또 구입 금액을 입력 받아 공백을 제거하여 반환한다.
+- 로또 구입 금액을 입력 받고 구매 수량(`purchaseQuantity`)을 반환한다.
+- 입력 받은 문자열을 검증하여 아래 조건에 따라 에러를 발생시킨다. (`validatePurchaseAmount`)
+  - 숫자가 아닌 경우
+  - 0 이하로 입력한 경우
+  - 1000 단위로 입력하지 않은 경우
 
-2. **입력한 수량만큼의 로또 발행 및 출력**
+### 2. **입력한 수량만큼의 로또 발행 및 출력 (`LottoDrawController`)**
 
-- 로또 구입 금액에 따라 발행할 로또 수량을 계산한다.
-- 입력한 금액이 숫자 외의 문자를 포함할 경우 예외를 발생시킨다.
-- 수량에 따라 로또를 발행하고 각각 숫자 배열에 저장한다.
-- 로또 발행 결과를 출력한다.
+- 구매 수량을 출력하고 수량만큼의 로또 배열을 생성한다. (`drawLottos`)
+- 발행한 로또(`drawnLottos`)를 출력하고 반환한다.
 
-3. **당첨 번호 및 보너스 번호 입력**
+### 3. **로또 당첨 번호 입력 (`WinningNumberController`)**
 
-- 당첨 번호 및 보너스 번호를 입력받아 공백을 제거하여 반환한다.
+- **로또 당첨 번호**를 입력받고 문자열을 파싱, 정렬하여 배열(`inputWinningNumbersArray`)로 만든다.
+- 당첨 번호 입력 시 아래 조건에 따라 에러를 발생시킨다.
+  - 숫자 또는 쉼표(`,`) 외의 문자를 포함할 경우
+  - 쉼표가 연속으로 왔을 경우
+  - 문자열 맨 앞과 뒤의 문자가 숫자가 아닌 경우
+- 당첨 번호 배열을 매개변수로 `Lotto` 클래스를 생성하고 아래 조건에 따라 에러를 발생시킨다.
+  - 배열의 길이가 6이 아닌 경우 (= 번호가 6개가 아닌 경우)
+  - 각 숫자가 범위(1~45)에 포함되는 않는 경우
+  - 중복된 숫자가 있을 경우
 
-4. **당첨 결과 계산 및 출력**
+### 4. **보너스 번호 입력 (`WinningNumberController`)**
 
-- 입력받은 당첨 번호를 쉼표(`,`)를 기준으로 파싱하여 배열에 저장한다.
-- 당첨 번호 및 보너스 번호와 발행한 로또를 비교하여 당첨 결과를 계산한다.
-- 등수별 당첨된 로또의 개수를 저장한다.
-- 각 등수에 대한 당첨 내역을 출력한다.
-- 아래의 경우 에러를 발생시킨다.
-  - 당첨 번호 문자열에 숫자와 쉼표(`,`) 외의 문자를 포함할 경우 에러를 발생시킨다.
-  - 보너스 번호가 숫자 외의 문자를 포함할 경우 에러를 발생시킨다.
+- **보너스 번호**를 입력 받아 숫자 형태로 변환하고 아래 조건에 따라 에러를 발생시킨다.
+  - 숫자가 아닐 경우
+- 보너스 번호를 매개변수로 `Bonus` 클래스를 생성하고 아래 조건에 따라 에러를 발생시킨다.
+  - 숫자가 범위(1~45)에 포함되는 않는 경우
+  - 로또 번호에 중복되는 숫자가 있는 경우(`Lotto`의 `containBonus` 사용)
 
-5. **수익률 계산 및 출력**
+- 이 후, 생성된 `Lotto`와 `Bonus` 클래스를 반환한다.
 
-- 로또 구입 금액과 당첨금을 비교하여 수익률을 계산한다.
-- 소수점 둘째 자리에서 반올림하여 출력한다.
+### 5. **당첨 결과 계산 및 출력**
+
+- 발행한 로또와 당첨 및 보너스 번호를 비교하여 당첨 통계를 구하고 이를 출력한다. (`checkLottos`)
+- 통계를 통해 총 수익률을 계산하고 이를 출력한다. (`calculateTotalRateOfReturn`)
 
 ## 📍 함수
 
+### Model
+
+- **`Lotto`**
+  - `containBonus` : 당첨 번호 중 보너스 번호와 중복되는 숫자가 있는지 여부를 반환한다.
+  - `countMatches` : 발행한 로또 번호와 당첨 번호 중 일치하는 개수를 반환한다.
+- **`Bonus`**
+  - `checkBonus` : 발행한 로또 번호 중 5개가 일치한 경우, 보너스 번호와 일치하는지 여부를 반환한다.
+
+### View
+
+- **`InputView`**
+  - `readLineIpnut` : 문자열을 입력받아 공백을 모두 제거하고 반환한다.
+- **`OutputView`**
+  - `printPurchaseQuantity` : 구매 수량을 출력한다.
+  - `printDrawLottos` : 발행한 로또 배열을 포맷에 맞춰 출력한다.
+  - `printResultInform` : 당첨 통계 안내 문구를 출력한다.
+  - `printMatchesInform` : 당첨 통계를 일치 개수에 맞춰 출력한다.
+  - `printTotalRateOfReturn` : 총 수익률을 출력한다.
+
+### Controller
+
+- **`PurchaseController`**
+  - `validate` : 구매 금액을 검증한다.
+- **`LottoDrawController`**
+  - `drawLottos` : 구매 수량에 맞춰 로또를 발행한다.
+- **`ResultController`**
+  - `checkLottos` : 발행한 로또와 당첨 번호를 비교하여 통계를 업데이트한다.
+  - `calculateTotalRateOfReturn` : 구매 금액과 당첨 통계를 통해 총 수익률을 계산하여 반환한다.
+
+### Service
+
+- **`LottoDrawService`**
+  - `drawOneLotto` : `Random.pickUniqueNumbersInRange`을 사용하여 랜덤한 로또 1개를 발행하고 오름차순으로 정렬하여 반환한다.
+  - `drawManyLottos` : 구매 수량만큼 `drawOneLotto`를 호출한 후 배열로 만들어 반환한다.
+- **`LottoCheckService`**
+  - `checkLottoMatch` : 발행한 로또와 당첨 번호를 비교하여 통계를 업데이트한다.
+- **`RateOfReturnService`**
+  - `calculateRateOfReturn` : 총 수익률을 계산한다.
+
+### Utils
+
+- `sortAscending` : 숫자 배열을 오름차순 정렬하여 배열로 반환한다.
+- `parseNumbers` : `delimiter`를 기준으로 파싱하여 숫자 배열로 반환한다.
+
 ## 🔥 예외 처리
 
-- [ERROR] 로또 구입 금액은 1,000원 단위로만 입력 가능합니다.
-- [ERROR] 구입 금액은 양의 정수로 입력해야 합니다.
-- [ERROR] 로또 당첨 번호와 보너스 번호는 범위 내 정수로만 입력 가능합니다. (범위: 1 ~ 45)
-- [ERROR] 로또 당첨 번호는 6개여야 합니다.
-- [ERROR] 구입 금액과 보너스 번호는 양의 정수로만 입력 가능합니다.
-- [ERROR] 로또 당첨 번호는 양의 정수 또는 쉼표(',')로만 입력 가능합니다.
-- [ERROR] 로또 당첨 번호 입력 시 쉼표(',')가 연속으로 올 수 없습니다.
-- [ERROR] 로또 당첨 번호 입력 시 맨 앞과 뒤는 숫자여야 합니다.
-- [ERROR] 로또 당첨 번호는 중복되는 숫자가 포함되지 않아야 합니다.
-- [ERROR] 보너스 번호는 로또 당첨 번호와 중복되지 않아야 합니다.
+- [ERROR] 로또 구입 금액은 1,000원 단위로만 입력 가능합니다. (`validatePurchaseAmount`)
+- [ERROR] 구입 금액은 양의 정수로 입력해야 합니다. (`validatePurchaseAmount`)
+- [ERROR] 로또 당첨 번호와 보너스 번호는 범위 내 정수로만 입력 가능합니다. (범위: 1 ~ 45) (`validateNumberRange`)
+- [ERROR] 로또 당첨 번호는 6개여야 합니다. (`validateLottoNumbersLength`)
+- [ERROR] 구입 금액과 보너스 번호는 양의 정수로만 입력 가능합니다. (`validatePurchaseAmount`, `validateInputBonusNumber`)
+- [ERROR] 로또 당첨 번호는 양의 정수 또는 쉼표(',')로만 입력 가능합니다. (`validateInputWinningNumbers`)
+- [ERROR] 로또 당첨 번호 입력 시 쉼표(',')가 연속으로 올 수 없습니다. (`validateInputWinningNumbers`)
+- [ERROR] 로또 당첨 번호 입력 시 맨 앞과 뒤는 숫자여야 합니다. (`validateInputWinningNumbers`)
+- [ERROR] 로또 당첨 번호는 중복되는 숫자가 포함되지 않아야 합니다. (`validateLottoNumberDuplication`)
+- [ERROR] 보너스 번호는 로또 당첨 번호와 중복되지 않아야 합니다. (`validateBonusDuplicatedWithLotto`)
 
 ## 📁 디렉토리 구조
 
