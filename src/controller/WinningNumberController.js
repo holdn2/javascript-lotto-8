@@ -1,12 +1,12 @@
 import inputView from '../view/InputView.js';
 import { INPUT_MESSAGE } from '../constant/inform.js';
-import Lotto from '../model/Lotto.js';
 import { parseNumbers, sortAscending } from '../utils/utils.js';
-import Bonus from '../model/Bonus.js';
 import {
   validateInputBonusNumber,
   validateInputWinningNumbers,
 } from '../service/validator/validators.js';
+import Lotto from '../model/Lotto.js';
+import Bonus from '../model/Bonus.js';
 
 export default class WinningNumberController {
   async run() {
@@ -19,15 +19,15 @@ export default class WinningNumberController {
       parseNumbers(inputWinningNumbers),
     );
 
-    const winningLotto = new Lotto(inputWinningNumbersArray);
+    const lotto = new Lotto(inputWinningNumbersArray);
 
     const inputBonusNumber = Number(
       await inputView.readLineInput(INPUT_MESSAGE.BONUS_NUMBER),
     );
     validateInputBonusNumber(inputBonusNumber);
 
-    const bonus = new Bonus(Number(inputBonusNumber), winningLotto);
+    const bonus = new Bonus(Number(inputBonusNumber), lotto);
 
-    return { winningLotto, bonus };
+    return { lotto, bonus };
   }
 }
