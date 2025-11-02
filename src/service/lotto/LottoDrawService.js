@@ -11,7 +11,7 @@ function drawOneLotto() {
   return sortAscending(drawnLotto);
 }
 
-export function drawManyLotto(purchaseQuantity) {
+export function drawManyLottos(purchaseQuantity) {
   const totalDrawnLottos = [];
   for (let i = 0; i < purchaseQuantity; i++) {
     totalDrawnLottos.push(drawOneLotto());

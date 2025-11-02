@@ -1,5 +1,5 @@
 import outputView from '../view/OutputView.js';
-import { drawManyLotto } from '../service/lotto/LottoDrawService.js';
+import { drawManyLottos } from '../service/lotto/LottoDrawService.js';
 
 export default class LottoDrawController {
   #purchaseQuantity;
@@ -19,6 +19,6 @@ export default class LottoDrawController {
   }
 
   #drawLottos() {
-    return drawManyLotto(this.#purchaseQuantity);
+    return drawManyLottos(this.#purchaseQuantity);
   }
 }
