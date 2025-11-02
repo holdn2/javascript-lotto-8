@@ -257,7 +257,7 @@ src/
  │       └─ 📄 Validator.test.js             # 각 validator 테스트
  ├─ 📁 utils/
  │   └─ 📄 utils.js                          # 순수 유틸 함수
- │   └─ 📄 ㅕtils.test.js                    # utils 테스트
+ │   └─ 📄 Utils.test.js                    # utils 테스트
  └─ 📁 view/
      ├─ 📄 InputView.js                      # 입력
      └─ 📄 OutputView.js                     # 출력
