@@ -4,6 +4,16 @@ export const NUMBER = Object.freeze({
   LOTTO_LENGTH: 6,
   UNIT: 1000,
   ZERO: 0,
+});
+
+export const MATCH_COUNT = Object.freeze({
+  TRHEE: 3,
+  FOUR: 4,
+  FIVE: 5,
+  SIX: 6,
+});
+
+export const WINNIING_AMOUNT = Object.freeze({
   FIFTH_PLACE: 5000,
   FOURTH_PLACE: 50000,
   THIRD_PLACE: 1500000,
