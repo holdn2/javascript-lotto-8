@@ -1,5 +1,6 @@
 import { Random } from '@woowacourse/mission-utils';
 import { NUMBER } from '../../constant/number.js';
+import { sortAscending } from '../../utils/utils.js';
 
 function drawOneLotto() {
   const drawnLotto = Random.pickUniqueNumbersInRange(
@@ -7,7 +8,7 @@ function drawOneLotto() {
     NUMBER.MAX,
     NUMBER.LOTTO_LENGTH,
   );
-  return drawnLotto.sort((prev, next) => prev - next);
+  return sortAscending(drawnLotto);
 }
 
 export function drawManyLotto(purchaseQuantity) {
