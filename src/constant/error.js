@@ -9,6 +9,8 @@ export const ERROR_MESSAGE = Object.freeze({
   NOT_A_NUMBER: '[ERROR] 구입 금액과 보너스 번호는 숫자로만 입력 가능합니다.',
   INVALID_CHARACTER:
     "[ERROR] 로또 번호는 숫자 또는 쉼표(',')로만 입력 가능합니다.",
-  DUPLICATE_NUMBER:
+  DUPLICATE_LOTTO_NUMBER:
     '[ERROR] 로또 번호는 중복되는 숫자가 포함되지 않아야 합니다.',
+  BONUS_DUPLICATED_WITH_LOTTO:
+    '[ERROR] 보너스 번호는 로또 번호와 중복되지 않아야 합니다.',
 });
