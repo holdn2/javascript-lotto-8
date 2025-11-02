@@ -13,7 +13,7 @@ export const MATCH_COUNT = Object.freeze({
   SIX: 6,
 });
 
-export const WINNIING_AMOUNT = Object.freeze({
+export const WINNING_AMOUNT = Object.freeze({
   FIFTH_PLACE: 5000,
   FOURTH_PLACE: 50000,
   THIRD_PLACE: 1500000,

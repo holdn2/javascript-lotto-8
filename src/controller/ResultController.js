@@ -1,4 +1,4 @@
-import { MATCH_COUNT, NUMBER, WINNIING_AMOUNT } from '../constant/number.js';
+import { MATCH_COUNT, NUMBER, WINNING_AMOUNT } from '../constant/number.js';
 import { checkLottoMatch } from '../service/lotto/LottoCheckService.js';
 import { calculateRateOfReturn } from '../service/lotto/RateOfReturnService.js';
 import outputView from '../view/OutputView.js';
