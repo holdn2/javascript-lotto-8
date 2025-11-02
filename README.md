@@ -156,7 +156,7 @@
 
 ## 🔥 예외 처리
 
-- [ERROR] 구입 금액은 1,000원 단위로만 입력 가능합니다.
+- [ERROR] 로또 구입 금액은 1,000원 단위로만 입력 가능합니다.
 - [ERROR] 구입 금액은 양의 정수로 입력해야 합니다.
 - [ERROR] 로또 당첨 번호와 보너스 번호는 범위 내 정수로만 입력 가능합니다. (범위: 1 ~ 45)
 - [ERROR] 로또 당첨 번호는 6개여야 합니다.
@@ -168,6 +168,46 @@
 - [ERROR] 보너스 번호는 로또 당첨 번호와 중복되지 않아야 합니다.
 
 ## 📁 디렉토리 구조
+
+```
+src/
+ ├─ 📄 index.js
+ ├─ 📄 App.js                                # 전체 실행 흐름
+ ├─ 📁 constant/
+ │   ├─ 📄 error.js                          # 에러 메시지 상수
+ │   ├─ 📄 inform.js                         # 입출력 메시지 상수
+ │   ├─ 📄 mark.js                           # 기호
+ │   ├─ 📄 number.js                         # 숫자 관련 상수
+ │   └─ 📄 regex.js                          # 입력 검증 정규식
+ ├─ 📁 controller/
+ │   ├─ 📄 LottoDrawController.js            # 로또 추첨 흐름 제어
+ │   ├─ 📄 PurchaseController.js             # 구입 금액 입력 및 유효성 검증
+ │   ├─ 📄 ResultController.js               # 결과 계산 및 출력 제어
+ │   └─ 📄 WinningNumberController.js        # 당첨 번호 입력 및 검증 제어
+ ├─ 📁 model/
+ │   ├─ 📄 Bonus.js                          # 보너스 번호 객체 정의
+ │   └─ 📄 Lotto.js                          # 당첨 로또 객체 정의
+ ├─ 📁 service/
+ │   ├─ 📁 lotto/
+ │   │   ├─ 📄 LottoCheckService.js          # 로또 당첨 확인 로직
+ │   │   ├─ 📄 LottoCheckService.test.js     # LottoCheckService 테스트
+ │   │   ├─ 📄 LottoDrawService.js           # 랜덤 로또 번호 생성 로직
+ │   │   ├─ 📄 LottoDrawService.test.js      # LottoDrawService 테스트
+ │   │   └─ 📄 RateOfReturnService.js        # 수익률 계산 로직
+ │   │   └─ 📄 RateOfReturnService.test.js   # RateOfReturnService 테스트
+ │   └─ 📁 validator/
+ │       ├─ 📄 bonusValidator.js             # 보너스 번호 유효성 검증
+ │       ├─ 📄 lottoValidator.js             # 로또 번호 유효성 검증
+ │       ├─ 📄 purchaseValidator.js          # 구입 금액 유효성 검증
+ │       ├─ 📄 rangeValidator.js             # 번호 범위 검증
+ │       └─ 📄 Validator.test.js             # 각 validator 테스트
+ ├─ 📁 utils/
+ │   └─ 📄 utils.js                          # 순수 유틸 함수
+ │   └─ 📄 ㅕtils.test.js                    # utils 테스트
+ └─ 📁 view/
+     ├─ 📄 InputView.js                      # 입력
+     └─ 📄 OutputView.js                     # 출력
+```
 
 ## 💻 참고자료
 
