@@ -6,4 +6,11 @@ export const INPUT_MESSAGE = Object.freeze({
 
 export const OUTPUT_MESSAGE = Object.freeze({
   PURCHASE_QUANTITY: '개를 구매했습니다.',
+  WINNING_STATISTICS: '\n당첨 통계\n---',
+  THREE_MATCHES: '3개 일치 (5,000원) - ',
+  FOUR_MATCHES: '4개 일치 (50,000원) - ',
+  FIVE_MATCHES: '5개 일치 (1,500,000원) - ',
+  FIVE_MATCHES_WITH_BONUS: '3개 일치 (5,000원) - ',
+  SIX_MATCHES: '6개 일치 (2,000,000,000원) - ',
+  TOTAL_RATE_OF_RETURN: (rateOfReturn) => `총 수익률은 ${rateOfReturn}%입니다.`,
 });
