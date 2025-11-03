@@ -240,7 +240,9 @@ src/
  │   └─ 📄 WinningNumberController.js        # 당첨 번호 입력 및 검증 제어
  ├─ 📁 model/
  │   ├─ 📄 Bonus.js                          # 보너스 번호 객체 정의
+ │   ├─ 📄 Bonus.test.js                     # Bonus 클래스 테스트
  │   └─ 📄 Lotto.js                          # 당첨 로또 객체 정의
+ │   └─ 📄 Lotto.test.js                     # Lotto 클래스 테스트
  ├─ 📁 service/
  │   ├─ 📁 lotto/
  │   │   ├─ 📄 LottoCheckService.js          # 로또 당첨 확인 로직
