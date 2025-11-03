@@ -7,10 +7,10 @@ import ResultController from './controller/ResultController.js';
 class App {
   async run() {
     try {
-      const purchaseQuantity = await new PurchaseController().run();
-      const drawnLottos = new LottoDrawController(purchaseQuantity).run();
+      const purchaseAmount = await new PurchaseController().run();
+      const drawnLottos = new LottoDrawController(purchaseAmount).run();
       const winningLotto = await new WinningNumberController().run();
-      new ResultController(purchaseQuantity, drawnLottos, winningLotto).run();
+      new ResultController(purchaseAmount, drawnLottos, winningLotto).run();
     } catch (e) {
       Console.print(e.message);
     }

@@ -5,10 +5,10 @@ import outputView from '../view/OutputView.js';
 
 export default class ResultController {
   #statistics;
-  #purchaseQuantity;
+  #purchaseAmount;
 
-  constructor(purchaseQuantity, drawnLottos, winningLotto) {
-    this.#purchaseQuantity = purchaseQuantity;
+  constructor(purchaseAmount, drawnLottos, winningLotto) {
+    this.#purchaseAmount = purchaseAmount;
     this.#statistics = {
       threeMatches: NUMBER.ZERO,
       fourMatches: NUMBER.ZERO,
@@ -30,6 +30,6 @@ export default class ResultController {
   }
 
   #calculateTotalRateOfReturn() {
-    return calculateRateOfReturn(this.#purchaseQuantity, this.#statistics);
+    return calculateRateOfReturn(this.#purchaseAmount, this.#statistics);
   }
 }

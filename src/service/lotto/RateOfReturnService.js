@@ -1,7 +1,6 @@
-import { NUMBER, WINNING_AMOUNT } from '../../constant/number.js';
+import { WINNING_AMOUNT } from '../../constant/number.js';
 
-export function calculateRateOfReturn(purchaseQuantity, statistics) {
-  const purchaseAmount = purchaseQuantity * NUMBER.UNIT;
+export function calculateRateOfReturn(purchaseAmount, statistics) {
   const totalWinningAmount =
     statistics.sixMatches * WINNING_AMOUNT.FIRST_PLACE +
     statistics.fiveMatchesWithBonus * WINNING_AMOUNT.SECOND_PLACE +

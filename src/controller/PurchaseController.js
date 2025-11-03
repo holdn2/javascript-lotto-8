@@ -1,6 +1,5 @@
 import inputView from '../view/InputView.js';
 import { INPUT_MESSAGE } from '../constant/inform.js';
-import { NUMBER } from '../constant/number.js';
 import { validatePurchaseAmount } from '../service/validator/purchaseValidator.js';
 
 export default class PurchaseController {
@@ -13,7 +12,7 @@ export default class PurchaseController {
 
     this.#validate();
 
-    return this.#purchaseAmount / NUMBER.UNIT;
+    return this.#purchaseAmount;
   }
 
   #validate() {

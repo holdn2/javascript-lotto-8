@@ -1,11 +1,12 @@
 import outputView from '../view/OutputView.js';
 import { drawManyLottos } from '../service/lotto/LottoDrawService.js';
+import { NUMBER } from '../constant/number.js';
 
 export default class LottoDrawController {
   #purchaseQuantity;
 
-  constructor(purchaseQuantity) {
-    this.#purchaseQuantity = purchaseQuantity;
+  constructor(purchaseAmount) {
+    this.#purchaseQuantity = purchaseAmount / NUMBER.UNIT;
   }
 
   run() {
