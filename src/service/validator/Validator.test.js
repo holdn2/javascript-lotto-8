@@ -1,5 +1,5 @@
 import { ERROR_MESSAGE } from '../../constant/error.js';
-import { validatePurchaseAmount } from './PurchaseValidator.js';
+import { validatePurchaseAmount } from './purchaseValidator.js';
 import { validateNumberRange } from './rangeValidator.js';
 import {
   validateInputWinningNumbers,

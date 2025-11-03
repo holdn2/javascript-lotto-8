@@ -1,7 +1,7 @@
 import inputView from '../view/InputView.js';
 import { INPUT_MESSAGE } from '../constant/inform.js';
 import { NUMBER } from '../constant/number.js';
-import { validatePurchaseAmount } from '../service/validator/PurchaseValidator.js';
+import { validatePurchaseAmount } from '../service/validator/purchaseValidator.js';
 
 export default class PurchaseController {
   #purchaseAmount;
