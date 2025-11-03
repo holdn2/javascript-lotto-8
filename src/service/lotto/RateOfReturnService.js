@@ -1,4 +1,4 @@
-import { WINNING_AMOUNT } from '../../constant/number.js';
+import { NUMBER, WINNING_AMOUNT } from '../../constant/number.js';
 
 export function calculateRateOfReturn(purchaseAmount, statistics) {
   const totalWinningAmount =
@@ -8,5 +8,5 @@ export function calculateRateOfReturn(purchaseAmount, statistics) {
     statistics.fourMatches * WINNING_AMOUNT.FOURTH_PLACE +
     statistics.threeMatches * WINNING_AMOUNT.FIFTH_PLACE;
 
-  return ((totalWinningAmount / purchaseAmount) * 100).toFixed(1);
+  return ((totalWinningAmount / purchaseAmount) * NUMBER.TO_PERCENT).toFixed(1);
 }

@@ -4,6 +4,7 @@ export const NUMBER = Object.freeze({
   LOTTO_LENGTH: 6,
   UNIT: 1000,
   ZERO: 0,
+  TO_PERCENT: 100,
 });
 
 export const MATCH_COUNT = Object.freeze({

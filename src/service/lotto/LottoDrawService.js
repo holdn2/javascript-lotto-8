@@ -13,7 +13,7 @@ function drawOneLotto() {
 
 export function drawManyLottos(purchaseQuantity) {
   const totalDrawnLottos = [];
-  for (let i = 0; i < purchaseQuantity; i++) {
+  for (let i = NUMBER.ZERO; i < purchaseQuantity; i++) {
     totalDrawnLottos.push(drawOneLotto());
   }
 
