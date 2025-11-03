@@ -8,7 +8,7 @@ export const ERROR_MESSAGE = Object.freeze({
   INVALID_LOTTO_NUMBER_LENGTH: '[ERROR] 로또 당첨 번호는 6개여야 합니다.',
   NOT_A_NUMBER:
     '[ERROR] 구입 금액과 보너스 번호는 양의 정수로만 입력 가능합니다.',
-  INVALID_CHARACTER:
+  INVALID_LOTTO_CHARACTER:
     "[ERROR] 로또 당첨 번호는 양의 정수 또는 쉼표(',')로만 입력 가능합니다.",
   INVALID_CONSECUTIVE_COMMAS:
     "[ERROR] 로또 당첨 번호 입력 시 쉼표(',')가 연속으로 올 수 없습니다.",

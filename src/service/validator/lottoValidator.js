@@ -5,7 +5,7 @@ import { REGEX } from '../../constant/regex.js';
 export function validateInputWinningNumbers(inputWinningNumbers) {
   // 당첨 번호 입력이 숫자 또는 쉼표 외의 문자를 포함하면 에러 발생
   if (!REGEX.VALID_CHARACTER.test(inputWinningNumbers)) {
-    throw new Error(ERROR_MESSAGE.INVALID_CHARACTER);
+    throw new Error(ERROR_MESSAGE.INVALID_LOTTO_CHARACTER);
   }
 
   // 쉼표가 연속으로 왔을 때 에러 발생
